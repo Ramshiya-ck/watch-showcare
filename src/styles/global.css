@@ -15,8 +15,8 @@
   --font-sans: "Outfit", Inter, sans-serif;
 }
 
-/* Enable class-based dark mode selector in Tailwind v4 */
-@variant dark (&:where(.dark, .dark *));
+/* Enable class-based dark mode selector in Tailwind v4 with robust specificity */
+@custom-variant dark (.dark &);
 
 /* Custom scrollbar styling */
 ::-webkit-scrollbar {
