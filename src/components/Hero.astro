@@ -108,57 +108,9 @@ import { Play } from '@lucide/astro';
   }
 </style>
 
-<!-- GSAP Page Load & Interactive Mouse Parallax Script -->
+<!-- GSAP Page Load Script -->
 <script>
   import { gsap } from 'gsap';
-
-  // Float animation (GSAP infinite bounce + sway)
-  gsap.fromTo('#hero-watch-wrapper', 
-    { y: -10, rotation: -0.5 }, 
-    { 
-      y: 10, 
-      rotation: 0.5,
-      duration: 4, 
-      ease: 'sine.inOut', 
-      yoyo: true, 
-      repeat: -1 
-    }
-  );
-
-  // Mouse Parallax on Watch Showcase
-  const section = document.querySelector('section');
-  const watchWrapper = document.getElementById('hero-watch-wrapper');
-
-  if (section && watchWrapper) {
-    section.addEventListener('mousemove', (e) => {
-      const rect = section.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-
-      // Translate coordinate into percentage offset (max 25px movement)
-      const moveX = (x / rect.width) * 30;
-      const moveY = (y / rect.height) * 30;
-
-      gsap.to(watchWrapper, {
-        x: moveX,
-        y: moveY + (watchWrapper.classList.contains('gsap-floating') ? 0 : 0), // preserve floating bounds
-        rotation: moveX * 0.05,
-        duration: 0.8,
-        ease: 'power2.out'
-      });
-    });
-
-    // Reset watch position when cursor leaves section
-    section.addEventListener('mouseleave', () => {
-      gsap.to(watchWrapper, {
-        x: 0,
-        y: 0,
-        rotation: 0,
-        duration: 1,
-        ease: 'power3.out'
-      });
-    });
-  }
 
   // Load animations for text elements
   gsap.from('#hero-text-container > *', {
@@ -168,13 +120,5 @@ import { Play } from '@lucide/astro';
     stagger: 0.2,
     ease: 'power3.out',
     delay: 0.2
-  });
-
-  gsap.from('#hero-watch-img', {
-    scale: 0.85,
-    opacity: 0,
-    duration: 1.5,
-    ease: 'power4.out',
-    delay: 0.4
   });
 </script>
