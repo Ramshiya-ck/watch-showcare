@@ -25,7 +25,7 @@ const features = [
 ];
 ---
 
-<section class="border-b border-white/5 bg-[#090909] relative py-16 md:py-20" id="features">
+<section class="border-b border-black/5 dark:border-white/5 bg-bg-light dark:bg-[#090909] relative py-16 md:py-20 theme-transition" id="features">
   <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-0">
     
     {features.map((feature, idx) => (
@@ -37,16 +37,16 @@ const features = [
         </div>
         
         <!-- Content -->
-        <h3 class="font-serif text-xs font-semibold tracking-[0.2em] text-white uppercase mb-2">
+        <h3 class="font-serif text-xs font-semibold tracking-[0.2em] text-black dark:text-white uppercase mb-2 theme-transition">
           {feature.title}
         </h3>
-        <p class="text-white/50 text-xs font-light max-w-[200px] leading-relaxed">
+        <p class="text-black/50 dark:text-white/50 text-xs font-light max-w-[200px] leading-relaxed theme-transition">
           {feature.description}
         </p>
 
         <!-- Vertical Divider (Only on Desktop, between columns) -->
         {idx < features.length - 1 && (
-          <div class="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-12 bg-white/10" />
+          <div class="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-12 bg-black/10 dark:bg-white/10 theme-transition" />
         )}
       </div>
     ))}
