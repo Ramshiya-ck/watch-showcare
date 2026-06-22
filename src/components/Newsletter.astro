@@ -58,6 +58,9 @@
 <!-- GSAP ScrollTrigger for Newsletter Section -->
 <script>
   import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
 
   gsap.from('#newsletter-image-box', {
     scrollTrigger: {

@@ -90,6 +90,9 @@ const steps = [
 <!-- GSAP ScrollTrigger for Process Section -->
 <script>
   import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
 
   // Stagger node animations
   gsap.from('#process .process-node', {

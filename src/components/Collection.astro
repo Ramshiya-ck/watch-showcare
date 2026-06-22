@@ -54,6 +54,9 @@ import ProductCard from './ProductCard.astro';
 <!-- GSAP ScrollTrigger for Collections Section -->
 <script>
   import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
 
   // Fade-in collections text
   gsap.from('#collections-text-box > *', {

@@ -57,6 +57,9 @@ const features = [
 <!-- GSAP ScrollTrigger for Features Section -->
 <script>
   import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
 
   gsap.from('#features .feature-item', {
     scrollTrigger: {

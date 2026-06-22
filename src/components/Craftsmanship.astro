@@ -43,6 +43,9 @@
 <!-- GSAP ScrollTrigger for Craftsmanship Section -->
 <script>
   import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
 
   // Animate Image sliding in from left
   gsap.from('#craftsmanship-image-container', {
