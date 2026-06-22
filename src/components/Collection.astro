@@ -1,0 +1,85 @@
+---
+import ProductCard from './ProductCard.astro';
+---
+
+<section id="collections" class="py-24 md:py-32 bg-[#090909] border-b border-white/5 relative">
+  <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    
+    <!-- Title & Description (Left 4 columns) -->
+    <div class="lg:col-span-4 flex flex-col items-start text-left" id="collections-text-box">
+      <span class="text-gold-400 text-xs font-semibold tracking-[0.3em] uppercase mb-4">
+        EXPLORE
+      </span>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight uppercase mb-6">
+        Our Timeless<br />Collections
+      </h2>
+      <p class="text-white/60 text-sm font-light leading-relaxed max-w-sm">
+        Crafted for those who value precision, passion and perfection in every detail.
+      </p>
+      
+      <a 
+        href="#" 
+        class="group text-gold-400 hover:text-white text-xs font-semibold tracking-[0.2em] uppercase flex items-center gap-2 mt-8 transition-colors duration-300"
+      >
+        VIEW ALL COLLECTIONS 
+        <span class="transform group-hover:translate-x-1 transition-transform duration-300 text-base font-light">→</span>
+      </a>
+    </div>
+
+    <!-- Product Cards Grid (Right 8 columns) -->
+    <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-6" id="collections-grid">
+      <ProductCard 
+        image="/images/cellini_skeleton.png" 
+        title="CELLINI SKELETON" 
+        edition="Rose Gold" 
+        price="₹ 2,49,000" 
+      />
+      <ProductCard 
+        image="/images/perpetual_black.png" 
+        title="PERPETUAL BLACK" 
+        edition="Ceramic Edition" 
+        price="₹ 3,25,000" 
+      />
+      <ProductCard 
+        image="/images/classic_heritage.png" 
+        title="CLASSIC HERITAGE" 
+        edition="Limited Edition" 
+        price="₹ 4,15,000" 
+      />
+    </div>
+
+  </div>
+</section>
+
+<!-- GSAP ScrollTrigger for Collections Section -->
+<script>
+  import { gsap } from 'gsap';
+
+  // Fade-in collections text
+  gsap.from('#collections-text-box > *', {
+    scrollTrigger: {
+      trigger: '#collections',
+      start: 'top 80%',
+      toggleActions: 'play none none none',
+    },
+    y: 30,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: 'power2.out',
+  });
+
+  // Stagger cards fade-in
+  gsap.from('#collections-grid > .product-card', {
+    scrollTrigger: {
+      trigger: '#collections-grid',
+      start: 'top 85%',
+      toggleActions: 'play none none none',
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: 'power3.out',
+  });
+</script>

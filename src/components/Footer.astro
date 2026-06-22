@@ -1,0 +1,110 @@
+---
+---
+
+<footer class="bg-[#090909] text-white/60 relative overflow-hidden border-t border-white/5 pt-20 pb-10">
+  
+  <!-- Decorative Faded Watch Gear SVG in the bottom right -->
+  <div class="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] text-gold-400/5 select-none pointer-events-none z-0">
+    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.3" class="w-full h-full animate-[spin_180s_linear_infinite]">
+      <circle cx="50" cy="50" r="45" stroke-dasharray="2, 2" />
+      <circle cx="50" cy="50" r="38" />
+      <circle cx="50" cy="50" r="10" />
+      <path d="M 50 0 L 50 100 M 0 50 L 100 50 M 15 15 L 85 85 M 15 85 L 85 15" />
+      <!-- Cog teeth -->
+      {Array.from({ length: 24 }).map((_, i) => {
+        const angle = (i * 360) / 24;
+        return (
+          <path 
+            d="M 50 12 L 50 6" 
+            transform={`rotate(${angle} 50 50)`} 
+            stroke-width="1"
+          />
+        );
+      })}
+    </svg>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    
+    <!-- Top Grid Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 pb-16">
+      
+      <!-- Logo & Bio (spans 5 columns) -->
+      <div class="md:col-span-5 flex flex-col items-start gap-6">
+        <a href="/" class="text-white font-serif text-lg font-semibold tracking-[0.25em] uppercase">
+          CLOFA ZANCAN
+        </a>
+        <p class="text-xs font-light leading-relaxed max-w-sm">
+          Timeless design. Precision engineering. Made for those who value every second. Our watches are crafted using traditional Swiss methods combined with modern innovations.
+        </p>
+        
+        <!-- Social Icons -->
+        <div class="flex items-center gap-5 text-white/80">
+          <a href="#" aria-label="Instagram" class="hover:text-gold-400 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="hover:text-gold-400 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="hover:text-gold-400 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/>
+              <polygon points="10 15 15 12 10 9"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links (spans 2 columns) -->
+      <div class="md:col-span-2 flex flex-col items-start gap-4">
+        <h4 class="text-white text-xs font-semibold tracking-[0.2em] uppercase">
+          QUICK LINKS
+        </h4>
+        <nav class="flex flex-col gap-3 text-xs font-light">
+          <a href="#" class="hover:text-gold-400 transition-colors">About Us</a>
+          <a href="#collections" class="hover:text-gold-400 transition-colors">Collections</a>
+          <a href="#services" class="hover:text-gold-400 transition-colors">Services</a>
+          <a href="#contact" class="hover:text-gold-400 transition-colors">Contact Us</a>
+        </nav>
+      </div>
+
+      <!-- Customer Care (spans 3 columns) -->
+      <div class="md:col-span-3 flex flex-col items-start gap-4">
+        <h4 class="text-white text-xs font-semibold tracking-[0.2em] uppercase">
+          CUSTOMER CARE
+        </h4>
+        <nav class="flex flex-col gap-3 text-xs font-light">
+          <a href="#" class="hover:text-gold-400 transition-colors">FAQs</a>
+          <a href="#" class="hover:text-gold-400 transition-colors">Shipping & Delivery</a>
+          <a href="#" class="hover:text-gold-400 transition-colors">Returns & Exchanges</a>
+          <a href="#" class="hover:text-gold-400 transition-colors">Warranty & Service</a>
+        </nav>
+      </div>
+
+      <!-- Legal (spans 2 columns) -->
+      <div class="md:col-span-2 flex flex-col items-start gap-4">
+        <h4 class="text-white text-xs font-semibold tracking-[0.2em] uppercase">
+          LEGAL
+        </h4>
+        <nav class="flex flex-col gap-3 text-xs font-light">
+          <a href="#" class="hover:text-gold-400 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-gold-400 transition-colors">Terms & Conditions</a>
+        </nav>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright Bar -->
+    <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-medium tracking-[0.1em] text-white/40 uppercase">
+      <span>© 2026 CLOFA ZANCAN. All Rights Reserved.</span>
+      <span class="text-gold-400/60 font-semibold tracking-[0.2em]">SWISS MADE</span>
+    </div>
+
+  </div>
+</footer>

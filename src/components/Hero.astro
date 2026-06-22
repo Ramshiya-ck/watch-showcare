@@ -1,0 +1,180 @@
+---
+import { Play } from '@lucide/astro';
+---
+
+<section class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-[#090909]">
+  
+  <!-- Curved dark shapes and radial lighting in background -->
+  <div class="absolute inset-0 z-0">
+    <!-- Radial lighting gradient behind watch -->
+    <div class="absolute top-[10%] right-[-10%] md:right-[5%] w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] rounded-full bg-radial from-gold-400/15 via-gold-400/5 to-transparent blur-[80px]" />
+    
+    <!-- Background subtle geometric line patterns -->
+    <div class="absolute top-[20%] right-[-5%] md:right-[10%] w-[600px] h-[600px] rounded-full border border-white/5 pointer-events-none flex items-center justify-center">
+      <div class="w-[450px] h-[450px] rounded-full border border-white/5 flex items-center justify-center">
+        <div class="w-[300px] h-[300px] rounded-full border border-gold-400/10" />
+      </div>
+    </div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-6 items-center">
+    
+    <!-- Hero Text (Left column - span 6) -->
+    <div class="lg:col-span-6 flex flex-col justify-center text-left" id="hero-text-container">
+      <span class="text-gold-400 text-xs font-semibold tracking-[0.3em] uppercase mb-4 block animate-fade-in">
+        NEW ARRIVAL
+      </span>
+      
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-bold tracking-tight text-white leading-[1.05] uppercase mb-6">
+        <span class="block">WATCH</span>
+        <span class="block text-gold-400/90">FUTURE</span>
+      </h1>
+      
+      <p class="text-white/60 text-sm md:text-base font-light leading-relaxed max-w-lg mb-10">
+        Relive the original Speedmaster era with our newest '57 models. The vintage look has been enhanced with a slimmer profile and a Master Chronometer upgrade.
+      </p>
+      
+      <div class="flex flex-wrap items-center gap-6">
+        <a 
+          href="#collections" 
+          class="bg-gold-400 hover:bg-gold-500 text-[#090909] font-semibold text-xs tracking-[0.15em] px-8 py-4.5 rounded-sm transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2"
+        >
+          DISCOVER COLLECTION 
+          <span class="text-base font-light">→</span>
+        </a>
+        
+        <button 
+          aria-label="Watch Video" 
+          class="group flex items-center gap-4 text-white/80 hover:text-white transition-colors cursor-pointer"
+        >
+          <span class="w-12 h-12 rounded-full border border-white/20 group-hover:border-gold-400 flex items-center justify-center transition-colors duration-300">
+            <Play class="w-4 h-4 fill-white group-hover:fill-gold-400 group-hover:text-gold-400 transition-colors" />
+          </span>
+          <span class="text-[11px] font-semibold tracking-[0.2em] uppercase">WATCH VIDEO</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Hero Watch Showcase (Right column - span 6) -->
+    <div class="lg:col-span-6 flex justify-center items-center relative py-12 lg:py-0">
+      <!-- Outer glowing orbital circles -->
+      <div class="absolute w-[90%] aspect-square max-w-[500px] border border-white/5 rounded-full pointer-events-none animate-[spin_120s_linear_infinite]" />
+      <div class="absolute w-[75%] aspect-square max-w-[420px] border border-white/10 rounded-full pointer-events-none animate-[spin_80s_linear_infinite_reverse]" />
+      
+      <!-- Interactive Watch Image container -->
+      <div id="hero-watch-wrapper" class="relative w-[85%] max-w-[480px] aspect-square flex items-center justify-center cursor-pointer transition-transform duration-300 ease-out">
+        <!-- Radial shadow below watch for depth -->
+        <div class="absolute bottom-4 w-3/4 h-10 bg-black/80 blur-xl rounded-full" />
+        
+        <img 
+          src="/images/hero_watch.png" 
+          alt="CLOFA ZANCAN Premium Gold Skeleton Watch" 
+          class="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(200,169,106,0.25)] select-none pointer-events-none"
+          id="hero-watch-img"
+        />
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scroll Down Indicator (bottom left) -->
+  <div class="absolute bottom-10 left-6 md:left-12 flex flex-col items-start gap-3 z-10 select-none">
+    <span class="text-white/40 text-[9px] font-semibold tracking-[0.25em] uppercase [writing-mode:vertical-lr]">
+      SCROLL DOWN
+    </span>
+    <span class="w-[1px] h-12 bg-white/20 relative overflow-hidden block">
+      <span class="absolute top-0 left-0 w-full h-1/2 bg-gold-400 animate-scroll-line" />
+    </span>
+  </div>
+
+</section>
+
+<style>
+  /* Custom scroll line animation */
+  @keyframes scroll-line {
+    0% {
+      transform: translateY(-100%);
+    }
+    50% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+  
+  .animate-scroll-line {
+    animation: scroll-line 2.5s infinite linear;
+  }
+</style>
+
+<!-- GSAP Page Load & Interactive Mouse Parallax Script -->
+<script>
+  import { gsap } from 'gsap';
+
+  // Float animation (GSAP infinite bounce + sway)
+  gsap.fromTo('#hero-watch-wrapper', 
+    { y: -10, rotation: -0.5 }, 
+    { 
+      y: 10, 
+      rotation: 0.5,
+      duration: 4, 
+      ease: 'sine.inOut', 
+      yoyo: true, 
+      repeat: -1 
+    }
+  );
+
+  // Mouse Parallax on Watch Showcase
+  const section = document.querySelector('section');
+  const watchWrapper = document.getElementById('hero-watch-wrapper');
+
+  if (section && watchWrapper) {
+    section.addEventListener('mousemove', (e) => {
+      const rect = section.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      // Translate coordinate into percentage offset (max 25px movement)
+      const moveX = (x / rect.width) * 30;
+      const moveY = (y / rect.height) * 30;
+
+      gsap.to(watchWrapper, {
+        x: moveX,
+        y: moveY + (watchWrapper.classList.contains('gsap-floating') ? 0 : 0), // preserve floating bounds
+        rotation: moveX * 0.05,
+        duration: 0.8,
+        ease: 'power2.out'
+      });
+    });
+
+    // Reset watch position when cursor leaves section
+    section.addEventListener('mouseleave', () => {
+      gsap.to(watchWrapper, {
+        x: 0,
+        y: 0,
+        rotation: 0,
+        duration: 1,
+        ease: 'power3.out'
+      });
+    });
+  }
+
+  // Load animations for text elements
+  gsap.from('#hero-text-container > *', {
+    y: 40,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: 'power3.out',
+    delay: 0.2
+  });
+
+  gsap.from('#hero-watch-img', {
+    scale: 0.85,
+    opacity: 0,
+    duration: 1.5,
+    ease: 'power4.out',
+    delay: 0.4
+  });
+</script>

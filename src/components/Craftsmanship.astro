@@ -1,0 +1,73 @@
+---
+---
+
+<section id="about" class="py-24 md:py-32 bg-[#090909] border-b border-white/5 relative">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    
+    <!-- Image (Left column - span 6) -->
+    <div class="lg:col-span-6 overflow-hidden rounded-sm group relative" id="craftsmanship-image-container">
+      <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
+      <img 
+        src="/images/craftsmanship.png" 
+        alt="Master Watchmaker assembling movements" 
+        class="w-full h-auto aspect-square object-cover transform scale-100 group-hover:scale-103 transition-transform duration-700 ease-out shadow-[0_15px_40px_rgba(0,0,0,0.6)]"
+      />
+    </div>
+
+    <!-- Text content (Right column - span 6) -->
+    <div class="lg:col-span-6 flex flex-col items-start text-left" id="craftsmanship-text-container">
+      <span class="text-gold-400 text-xs font-semibold tracking-[0.3em] uppercase mb-4">
+        CRAFTSMANSHIP
+      </span>
+      
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight uppercase mb-6">
+        Built With Precision.<br />Defined By Passion.
+      </h2>
+      
+      <p class="text-white/60 text-sm font-light leading-relaxed mb-8 max-w-xl">
+        Every detail is meticulously handcrafted by experts who live and breathe watchmaking. We fuse centuries-old Swiss watchmaking traditions with cutting-edge engineering to create timepieces that are not just accessories, but statements of legacy.
+      </p>
+      
+      <a 
+        href="#process" 
+        class="group text-gold-400 hover:text-white text-xs font-semibold tracking-[0.2em] uppercase flex items-center gap-2 transition-colors duration-300"
+      >
+        DISCOVER OUR PROCESS 
+        <span class="transform group-hover:translate-x-1 transition-transform duration-300 text-base font-light">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- GSAP ScrollTrigger for Craftsmanship Section -->
+<script>
+  import { gsap } from 'gsap';
+
+  // Animate Image sliding in from left
+  gsap.from('#craftsmanship-image-container', {
+    scrollTrigger: {
+      trigger: '#about',
+      start: 'top 75%',
+      toggleActions: 'play none none none',
+    },
+    x: -50,
+    opacity: 0,
+    duration: 1,
+    ease: 'power3.out',
+  });
+
+  // Animate Text sliding in from right
+  gsap.from('#craftsmanship-text-container > *', {
+    scrollTrigger: {
+      trigger: '#about',
+      start: 'top 75%',
+      toggleActions: 'play none none none',
+    },
+    x: 50,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.15,
+    ease: 'power3.out',
+  });
+</script>

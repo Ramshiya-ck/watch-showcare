@@ -1,0 +1,73 @@
+---
+import { Cog, Diamond, ShieldCheck, Droplet } from '@lucide/astro';
+
+const features = [
+  {
+    icon: Cog,
+    title: 'SWISS MOVEMENT',
+    description: 'Precision engineered for perfection.'
+  },
+  {
+    icon: Diamond,
+    title: 'SAPPHIRE CRYSTAL',
+    description: 'Scratch-resistant clarity that lasts.'
+  },
+  {
+    icon: ShieldCheck,
+    title: '5 YEARS WARRANTY',
+    description: 'Confidence in every second.'
+  },
+  {
+    icon: Droplet,
+    title: 'WATER RESISTANT',
+    description: 'Engineered for all elements.'
+  }
+];
+---
+
+<section class="border-b border-white/5 bg-[#090909] relative py-16 md:py-20" id="features">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-0">
+    
+    {features.map((feature, idx) => (
+      <div class="feature-item flex flex-col items-center text-center px-4 relative group">
+        
+        <!-- Icon -->
+        <div class="mb-4 text-gold-400 group-hover:scale-110 transition-transform duration-300">
+          <feature.icon class="w-8 h-8 stroke-[1.25]" />
+        </div>
+        
+        <!-- Content -->
+        <h3 class="font-serif text-xs font-semibold tracking-[0.2em] text-white uppercase mb-2">
+          {feature.title}
+        </h3>
+        <p class="text-white/50 text-xs font-light max-w-[200px] leading-relaxed">
+          {feature.description}
+        </p>
+
+        <!-- Vertical Divider (Only on Desktop, between columns) -->
+        {idx < features.length - 1 && (
+          <div class="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-12 bg-white/10" />
+        )}
+      </div>
+    ))}
+
+  </div>
+</section>
+
+<!-- GSAP ScrollTrigger for Features Section -->
+<script>
+  import { gsap } from 'gsap';
+
+  gsap.from('#features .feature-item', {
+    scrollTrigger: {
+      trigger: '#features',
+      start: 'top 90%',
+      toggleActions: 'play none none none',
+    },
+    y: 20,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: 'power1.out',
+  });
+</script>
