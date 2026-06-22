@@ -9,7 +9,7 @@ interface Props {
 const { image, title, edition, price } = Astro.props;
 ---
 
-<div class="product-card group relative bg-black/[0.01] dark:bg-white/[0.02] backdrop-blur-md border border-black/5 dark:border-white/5 rounded-sm p-6 md:p-8 flex flex-col justify-between items-center text-center overflow-hidden transition-all duration-500 hover:border-gold-400/30 hover:bg-black/[0.03] dark:hover:bg-white/[0.04] shadow-[0_10px_30px_rgba(0,0,0,0.15)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+<div class="product-card group relative bg-black/[0.01] dark:bg-white/[0.02] backdrop-blur-md border border-black/5 dark:border-white/5 rounded-sm p-6 md:p-8 flex flex-col justify-between items-center text-center overflow-hidden transition-colors duration-500 hover:border-gold-400/30 hover:bg-black/[0.03] dark:hover:bg-white/[0.04] shadow-[0_10px_30px_rgba(0,0,0,0.15)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
   
   <!-- Subtle lighting glow behind card on hover -->
   <div class="absolute inset-0 bg-radial from-gold-400/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
@@ -31,7 +31,7 @@ const { image, title, edition, price } = Astro.props;
     <h3 class="font-serif text-sm tracking-[0.2em] font-semibold text-black dark:text-white uppercase mb-1 group-hover:text-gold-400 transition-colors duration-300">
       {title}
     </h3>
-    <p class="text-[10px] tracking-[0.15em] font-medium text-black/40 dark:text-white/40 uppercase mb-4">
+    <p class="text-[10px] tracking-[0.15em] font-medium text-black dark:text-white uppercase mb-4">
       {edition}
     </p>
     <div class="text-gold-400 font-semibold text-sm tracking-[0.1em]">

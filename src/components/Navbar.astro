@@ -21,7 +21,7 @@ import { User, ShoppingBag, Sun, Moon } from '@lucide/astro';
       ].map((link) => (
         <a 
           href={link.href} 
-          class={`relative py-2 text-[11px] font-medium tracking-[0.2em] transition-colors duration-300 text-black/70 dark:text-white/80 hover:text-black dark:hover:text-white ${
+          class={`relative py-2 text-[11px] font-medium tracking-[0.2em] transition-colors duration-300 text-black dark:text-white hover:text-gold-400 dark:hover:text-gold-400 ${
             link.active ? 'text-gold-400 dark:text-gold-400 font-semibold' : ''
           }`}
         >
@@ -34,9 +34,9 @@ import { User, ShoppingBag, Sun, Moon } from '@lucide/astro';
     </nav>
 
     <!-- Right Side Icons -->
-    <div class="flex items-center gap-6 text-black/70 dark:text-white/80">
+    <div class="flex items-center gap-6 text-black dark:text-white">
       <!-- Theme Toggle Button -->
-      <button id="theme-toggle" aria-label="Toggle Theme" class="hover:text-gold-400 transition-colors cursor-pointer text-black/75 dark:text-white/80 flex items-center justify-center">
+      <button id="theme-toggle" aria-label="Toggle Theme" class="hover:text-gold-400 transition-colors cursor-pointer text-black dark:text-white flex items-center justify-center">
         <Sun class="w-5 h-5 stroke-[1.5] hidden dark:block" />
         <Moon class="w-5 h-5 stroke-[1.5] block dark:hidden" />
       </button>
@@ -70,7 +70,7 @@ import { User, ShoppingBag, Sun, Moon } from '@lucide/astro';
       ].map((link) => (
         <a 
           href={link.href} 
-          class="text-xs font-medium tracking-[0.2em] text-black/70 dark:text-white/80 hover:text-gold-400 transition-colors"
+          class="text-xs font-medium tracking-[0.2em] text-black dark:text-white hover:text-gold-400 transition-colors"
         >
           {link.name}
         </a>
